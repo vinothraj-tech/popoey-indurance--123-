@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#c90024" />
+  <title>Popoye Insurance | Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="Popoye Insurance home">
+        <span class="brand-mark"><img src="assets/popoye-logo.png" alt="Popoye mascot logo" /></span>
+        <span class="brand-copy"><strong>POPOYE</strong><small>INSURANCE</small></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="nav-list" aria-label="Main navigation">
+        <button class="nav-item active" data-page="dashboard"><span class="nav-icon">▦</span> Dashboard</button>
+        <button class="nav-item" data-page="customers"><span class="nav-icon">👥</span> Customers <span class="nav-count">248</span></button>
+        <button class="nav-item" data-page="payments"><span class="nav-icon">₹</span> Payments</button>
+        <button class="nav-item" data-page="policies"><span class="nav-icon">▤</span> Policies</button>
+        <button class="nav-item" data-page="transactions"><span class="nav-icon">⇄</span> Transactions</button>
+        <button class="nav-item" data-page="reports"><span class="nav-icon">📊</span> Reports</button>
+        <button class="nav-item" data-page="settings"><span class="nav-icon">⚙</span> Settings</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><div class="help-icon">✦</div><strong>Need a hand?</strong><p>Visit the support centre for help with your workspace.</p><button id="supportBtn">Open support ↗</button></div>
+        <div class="profile-mini"><div class="avatar">VR</div><div><strong>Vinothraj</strong><small>Administrator</small></div><span class="profile-dots">•••</span></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Toggle menu">☰</button>
+        <div class="breadcrumb"><span>Workspace</span><b>/</b><strong id="pageCrumb">Dashboard</strong></div>
+        <div class="top-actions">
+          <label class="search-box"><span>⌕</span><input id="globalSearch" type="search" placeholder="Search anything..." aria-label="Search dashboard" /><kbd>⌘ K</kbd></label>
+          <button class="icon-button notification-btn" id="notificationBtn" aria-label="Notifications">♧<i></i></button>
+          <div class="top-avatar">VR</div>
+        </div>
+      </header>
+
+      <section class="page-area">
+        <div class="page-heading">
+          <div><div class="eyebrow"><span class="live-dot"></span> POPOYE OPERATIONS</div><h1 id="pageTitle">Good afternoon, Vinothraj <span class="wave">✦</span></h1><p id="pageSubtitle">Here’s what’s happening with your insurance payments today.</p></div>
+          <div class="heading-actions"><button class="btn btn-light" id="exportBtn">⇩ Export report</button><button class="btn btn-primary" id="newPaymentBtn">＋ Create payment link</button></div>
+        </div>
+
+        <div class="overview-strip">
+          <div class="overview-copy"><div class="strip-label">PAYMENT COLLECTION OVERVIEW <span class="status-pill"><i></i> Live overview</span></div><h2>Keep every renewal moving.</h2><p>Monitor payments, policy renewals, and customer activity from one place.</p><div class="strip-bottom"><span class="strip-check">✓</span> Payments sync with your transaction records <span class="strip-separator">·</span> Updated just now</div></div>
+          <div class="strip-art"><div class="art-ring ring-one"></div><div class="art-ring ring-two"></div><div class="art-card card-back">₹ <span>RENEWAL</span></div><div class="art-card card-front"><span class="art-check">✓</span><strong>Payment secured</strong><small>Popoye Insurance</small><div class="art-progress"><i></i></div></div><div class="float-bubble bubble-one">↗ <b>+18.6%</b></div><div class="float-bubble bubble-two">✓ Verified</div></div>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>Total collections</span><span class="stat-icon red">₹</span></div><div class="stat-value" id="totalCollections">₹8,42,650</div><div class="stat-foot"><span class="trend positive">↗ 12.8%</span><span>vs last month</span><div class="sparkline"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></article>
+          <article class="stat-card"><div class="stat-top"><span>Successful payments</span><span class="stat-icon green">✓</span></div><div class="stat-value">1,284</div><div class="stat-foot"><span class="trend positive">↗ 8.2%</span><span>vs last month</span><div class="sparkline green-spark"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></article>
+          <article class="stat-card"><div class="stat-top"><span>Pending renewals</span><span class="stat-icon amber">◷</span></div><div class="stat-value">126</div><div class="stat-foot"><span class="trend warning">Needs attention</span><span>due in 7 days</span><div class="sparkline amber-spark"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></article>
+          <article class="stat-card"><div class="stat-top"><span>Failed transactions</span><span class="stat-icon rose">!</span></div><div class="stat-value">18</div><div class="stat-foot"><span class="trend negative">↘ 2.4%</span><span>vs last month</span><div class="sparkline rose-spark"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></article>
+        </div>
+
+        <div class="content-grid">
+          <section class="panel collection-panel">
+            <div class="panel-heading"><div><h3>Collection performance</h3><p>Track payment volume over time</p></div><select id="periodSelect" aria-label="Collection period"><option value="week">This week</option><option value="month" selected>This month</option><option value="year">This year</option></select></div>
+            <div class="chart-legend"><span><i class="legend-red"></i> Collections</span><span><i class="legend-pale"></i> Previous period</span><strong id="chartTotal">₹8,42,650 <small>+12.8%</small></strong></div>
+            <div class="chart-wrap"><div class="chart-y-labels"><span>₹10L</span><span>₹7.5L</span><span>₹5L</span><span>₹2.5L</span><span>₹0</span></div><div class="chart" role="img" aria-label="Animated collection performance chart"><div class="chart-grid"><i></i><i></i><i></i><i></i><i></i></div><svg viewBox="0 0 700 230" preserveAspectRatio="none" class="chart-svg"><defs><linearGradient id="areaFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#e51d3d" stop-opacity=".20"/><stop offset="100%" stop-color="#e51d3d" stop-opacity="0"/></linearGradient></defs><path class="area-path" d="M0 190 C40 180 50 155 100 164 S165 130 200 142 S260 100 300 122 S360 86 400 105 S470 55 500 77 S565 45 600 58 S660 22 700 32 L700 230 L0 230 Z"/><path class="line-path" d="M0 190 C40 180 50 155 100 164 S165 130 200 142 S260 100 300 122 S360 86 400 105 S470 55 500 77 S565 45 600 58 S660 22 700 32"/><circle cx="500" cy="77" r="5" class="chart-point"/></svg><div class="chart-x-labels"><span>01 Oct</span><span>05 Oct</span><span>10 Oct</span><span>15 Oct</span><span>20 Oct</span><span>25 Oct</span><span>31 Oct</span></div><div class="chart-tooltip"><small>20 Oct 2026</small><strong>₹42,850</strong><span>+18.6% from previous day</span></div></div></div>
+          </section>
+
+          <section class="panel methods-panel"><div class="panel-heading"><div><h3>Payment methods</h3><p>Successful payment distribution</p></div><button class="more-btn" aria-label="More payment method options">•••</button></div><div class="donut-area"><div class="donut"><div class="donut-center"><strong>1,284</strong><small>Payments</small></div></div><div class="donut-total"><strong>₹8.42L</strong><small>Total received</small></div></div><div class="method-list"><div><span><i class="method-dot upi"></i> UPI</span><strong>62% <small>₹5,22,443</small></strong></div><div><span><i class="method-dot card-dot"></i> Cards</span><strong>24% <small>₹2,02,236</small></strong></div><div><span><i class="method-dot net-dot"></i> Net banking</span><strong>14% <small>₹1,17,971</small></strong></div></div></section>
+        </div>
+
+        <section class="panel transactions-panel" id="transactionsPanel"><div class="panel-heading"><div><h3>Recent transactions</h3><p>Latest customer payment activity</p></div><button class="text-button" data-goto="transactions">View all transactions <span>→</span></button></div>
+          <div class="table-toolbar"><div class="filter-tabs"><button class="filter-tab selected" data-filter="All">All transactions <span>6</span></button><button class="filter-tab" data-filter="Paid">Paid</button><button class="filter-tab" data-filter="Pending">Pending</button><button class="filter-tab" data-filter="Failed">Failed</button></div><label class="table-search">⌕ <input id="tableSearch" type="search" placeholder="Search customer..." /></label></div>
+          <div class="table-scroll"><table><thead><tr><th>CUSTOMER</th><th>VEHICLE DETAILS</th><th>PAYMENT DATE</th><th>AMOUNT</th><th>PAYMENT METHOD</th><th>STATUS</th><th></th></tr></thead><tbody id="transactionRows">
+            <tr data-status="Paid"><td><div class="customer-cell"><span class="customer-avatar av-red">RK</span><span><strong>Ravi Kumar</strong><small>ravi.k@email.com</small></span></div></td><td><strong>TN38 AB 1234</strong><small>Honda Activa 125</small></td><td>22 Oct 2026<small>10:42 AM</small></td><td><strong>₹699.00</strong></td><td><span class="method-chip">◈ UPI</span></td><td><span class="status paid"><i></i> Paid</span></td><td><button class="row-more" aria-label="Transaction actions">•••</button></td></tr>
+            <tr data-status="Paid"><td><div class="customer-cell"><span class="customer-avatar av-blue">SM</span><span><strong>Suresh M</strong><small>suresh.m@email.com</small></span></div></td><td><strong>TN37 CD 5678</strong><small>TVS Jupiter</small></td><td>22 Oct 2026<small>10:18 AM</small></td><td><strong>₹749.00</strong></td><td><span class="method-chip">▣ Card</span></td><td><span class="status paid"><i></i> Paid</span></td><td><button class="row-more" aria-label="Transaction actions">•••</button></td></tr>
+            <tr data-status="Pending"><td><div class="customer-cell"><span class="customer-avatar av-purple">MK</span><span><strong>Manoj Kumar</strong><small>manoj.k@email.com</small></span></div></td><td><strong>TN39 EF 9012</strong><small>Royal Enfield Classic</small></td><td>22 Oct 2026<small>09:56 AM</small></td><td><strong>₹1,299.00</strong></td><td><span class="method-chip">◈ UPI</span></td><td><span class="status pending"><i></i> Pending</span></td><td><button class="row-more" aria-label="Transaction actions">•••</button></td></tr>
+            <tr data-status="Failed"><td><div class="customer-cell"><span class="customer-avatar av-green">KP</span><span><strong>Karthik P</strong><small>karthik.p@email.com</small></span></div></td><td><strong>TN36 GH 4567</strong><small>Bajaj Pulsar 150</small></td><td>21 Oct 2026<small>05:32 PM</small></td><td><strong>₹899.00</strong></td><td><span class="method-chip">▣ Card</span></td><td><span class="status failed"><i></i> Failed</span></td><td><button class="row-more" aria-label="Transaction actions">•••</button></td></tr>
+            <tr data-status="Paid"><td><div class="customer-cell"><span class="customer-avatar av-orange">PD</span><span><strong>Prakash D</strong><small>prakash.d@email.com</small></span></div></td><td><strong>TN31 JK 7890</strong><small>Hero Splendor Plus</small></td><td>21 Oct 2026<small>04:09 PM</small></td><td><strong>₹649.00</strong></td><td><span class="method-chip">⌁ Net banking</span></td><td><span class="status paid"><i></i> Paid</span></td><td><button class="row-more" aria-label="Transaction actions">•••</button></td></tr>
+            <tr data-status="Pending"><td><div class="customer-cell"><span class="customer-avatar av-pink">AS</span><span><strong>Anitha S</strong><small>anitha.s@email.com</small></span></div></td><td><strong>TN25 LM 1122</strong><small>Yamaha Fascino</small></td><td>21 Oct 2026<small>02:25 PM</small></td><td><strong>₹799.00</strong></td><td><span class="method-chip">◈ UPI</span></td><td><span class="status pending"><i></i> Pending</span></td><td><button class="row-more" aria-label="Transaction actions">•••</button></td></tr>
+          </tbody></table></div><div class="table-footer"><span id="tableCount">Showing 6 of 1,284 transactions</span><div class="pagination"><button disabled>←</button><button class="page-current">1</button><button>2</button><button>3</button><span>…</span><button>214</button><button>→</button></div></div>
+        </section>
+        <footer class="footer"><span>© 2026 Popoye Insurance. All rights reserved.</span><span><i class="live-dot"></i> All systems operational <b>·</b> Help centre</span></footer>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status"><span class="toast-check">✓</span><span id="toastMessage">Done</span></div>
+  <div class="modal-backdrop" id="modalBackdrop"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" id="modalClose" aria-label="Close dialog">×</button><div class="modal-symbol">↗</div><h2 id="modalTitle">Create payment link</h2><p class="modal-intro">Create a renewal payment request for a customer.</p><form id="paymentForm"><label>Customer name<input required name="customer" placeholder="e.g. Ravi Kumar" /></label><div class="form-row"><label>Mobile number<input required name="mobile" inputmode="numeric" pattern="[0-9]{10}" placeholder="10-digit mobile" /></label><label>Premium amount (₹)<input required name="amount" type="number" min="1" placeholder="699" /></label></div><label>Vehicle number<input required name="vehicle" placeholder="e.g. TN38 AB 1234" /></label><label>Payment channel<select name="channel"><option>WhatsApp (AiSensy)</option><option>Copy payment link</option><option>SMS</option></select></label><button class="btn btn-primary modal-submit" type="submit">Generate payment link →</button><small class="demo-note">Demo UI only — no real payment or WhatsApp message will be sent.</small></form></section></div>
+  <script src="script.js"></script>
+</body>
+</html>
